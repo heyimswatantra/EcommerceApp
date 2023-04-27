@@ -1,7 +1,10 @@
-import {Box, Button, Typography} from '@mui/material';
+import { useState } from 'react';
+
+import {Box, Button, Typography, styled} from '@mui/material';
 import {ShoppingCart} from '@mui/icons-material';
-import styled from '@emotion/styled';
-import { style } from '@mui/system';
+
+//components import
+import LoginDailog from '../login/LoginDialog';
 
 const Wrapper = styled(Box)`
 display: flex;
@@ -28,9 +31,16 @@ font-wieght: 600;
 
 
 const CustomButtom = () => {
+
+    const [open, setOpen] = useState(false);
+
+    const openDialog = () => {
+        setOpen(true);
+    }
+
     return (
         <Wrapper>
-            <LoginButton variant= "contained">Login</LoginButton>
+            <LoginButton variant= "contained" onClick={ () => openDialog()}>Login</LoginButton>
 
             <Typography style={{ marginTop: 3, width: 135 }}>Become a Seller</Typography>
             <Typography style={{ marginTop: 3 }}>More</Typography>
@@ -38,6 +48,7 @@ const CustomButtom = () => {
                 <ShoppingCart/> 
                 <Typography>Cart</Typography>
             </Container>
+            <LoginDailog open={open} setOpen={setOpen} />
         </Wrapper>
     )
 }
