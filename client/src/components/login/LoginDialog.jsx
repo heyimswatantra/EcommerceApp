@@ -1,6 +1,10 @@
-import { useState } from 'react';
+import { useState , useContext} from 'react';
 
 import {Dialog, Box, TextField, Button, Typography, styled} from '@mui/material';
+
+import { authenticateSignup } from '../../service/api';
+
+import {DataContext} from '../../context/DataProvider';
 
 const Component = styled(Box)`
 height: 70vh;
@@ -9,7 +13,7 @@ width: 90vh;
 
 const Image = styled(Box)`
 background: #2874f0 url(https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/login_img_c4a81e.png) center 85% no-repeat;
-height: 83%;
+height: 83.8%;
 width: 28%;
 padding: 45px 35px;
 & > p , & > h5 {
@@ -70,9 +74,21 @@ const accountInitailValues = {
     }
 }
 
+const signupInitialValues = {
+    firstname: '',
+    lastname: '',
+    username: '',
+    email: '',
+    password: '',
+    phone: '',
+}
+
 const LoginDailog = ({open, setOpen}) => {
 
     const [account, toggleAccount] = useState(accountInitailValues.login);
+    const [signup, setSignup] = useState(signupInitialValues);
+
+    const { setAccount } = useContext(DataContext);
 
     const handleClose = () => {
         setOpen(false);
@@ -81,6 +97,18 @@ const LoginDailog = ({open, setOpen}) => {
 
     const toggleSignup = () => {
         toggleAccount(accountInitailValues.signup);
+    }
+
+    const onInputChange = (e) => {
+        setSignup({...signup, [e.target.name]: e.target.value});
+        console.log(signup);
+    }
+
+    const signupUser = async () => {
+        let response = await authenticateSignup(signup);
+        if (!response) return;
+        handleClose();
+        setAccount(signup.firstname);
     }
 
     return (
@@ -104,13 +132,13 @@ const LoginDailog = ({open, setOpen}) => {
                             </Wrapper>
                         : 
                             <Wrapper>
-                            <TextField variant='standard' label='Enter First Name' />
-                            <TextField variant='standard' label='Enter Last Name' />
-                            <TextField variant='standard' label='Enter Username' />
-                            <TextField variant='standard' label='Enter Email' />
-                            <TextField variant='standard' label='Enter Password' />
-                            <TextField variant='standard' label='Enter Phone' />
-                            <LoginButton>Contunue</LoginButton>
+                                <TextField variant='standard' onChange={(e) => onInputChange(e) } name='firstname' label='Enter First Name' />
+                                <TextField variant='standard' onChange={(e) => onInputChange(e) } name='lastname' label='Enter Last Name' />
+                                <TextField variant='standard' onChange={(e) => onInputChange(e) } name='username' label='Enter Username' />
+                                <TextField variant='standard' onChange={(e) => onInputChange(e) } name='email' label='Enter Email' />
+                                <TextField variant='standard' onChange={(e) => onInputChange(e) } name='password' label='Enter Password' />
+                                <TextField variant='standard' onChange={(e) => onInputChange(e) } name='phone' label='Enter Phone' />
+                            <LoginButton onClick={ () => signupUser()}>Contunue</LoginButton>
                             </Wrapper>
                     }
                 </Box>

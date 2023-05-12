@@ -4,21 +4,20 @@
 import Header from './components/header/Header';
 import Home from './components/home/Home';
 
+import DataProvider from './context/DataProvider';
+
 import { Box } from '@mui/material';
 
 function App() {
   return (
-    <div>
+    <DataProvider>
       <Header/>
       <Box style = {{marginTop: 54}}>
       <Home/>
       </Box>
-    </div>
+    </DataProvider>
   );
 }
 
 export default App;
 
-
-
-// C:\Users\swata\OneDrive\Desktop\flipkartClone_Project\client\src\components\header\Header.jsx
