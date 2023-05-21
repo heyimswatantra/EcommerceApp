@@ -22,7 +22,7 @@ const handleClick = (event) => {
 }
 
 const handleClose = () => {
-    setOpen(false);
+    setOpen(false); 
 }
 
 const Logout = () => {
