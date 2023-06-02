@@ -40,7 +40,7 @@ const Logout = () => {
             >
                 <MenuItem onClick={ () => {handleClose(); Logout(); }}>
                     <PowerSettingsNewIcon color="primary" fontSize='small'/>   
-                    <Typography>Logout</Typography>
+                    <Logout>Logout</Logout>
                 </MenuItem>
             </Component>
         </>
@@ -48,10 +48,3 @@ const Logout = () => {
 }
 
 export default Profile;
-
-
-
-
-
-{/* <MenuItem onClick={handleClose}>My account</MenuItem>
-                <MenuItem onClick={handleClose}>Logout</MenuItem> */}
