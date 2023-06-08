@@ -9,6 +9,9 @@ import { useDispatch } from "react-redux";
 
 import { addToCart } from "../../redux/actions/cartActions";
 
+import { payUsingPaytm } from "../../service/api";
+import { post } from "../../utils/paytm";
+
 const LeftContainer = styled(Box)(({theme}) => ({
     minWidth: '40%',
     padding: '40px 0 0 80px',
@@ -50,13 +53,23 @@ const ActionItem = ({product}) => {
         navigate('/cart');
     }
 
+    const buyNow = async () => {
+        let response = await payUsingPaytm({amount : 500, mail: 'swatantra1265'});
+        let information = {
+            action : 'https://securegw-stage.paytm.in/order/process',
+            params: response
+        }
+        post(information);
+    }
+
     return (
+
         <LeftContainer>
             <Box style={{padding: '15px', border: '1px solid #f0f0f0'}}>
                 <Image src={product.detailUrl} />
             </Box>
             <StyledButton variant="contained" onClick={ () => addItemToCart()} style={{marginRight: 10, background: '#ff9f00'}} ><CartIcon/>Add to cart</StyledButton>
-            <StyledButton variant="contained" style={{background: '#fb541b'}}><Flash/>Buy Now</StyledButton>
+            <StyledButton variant="contained" onClick={ () => buyNow()} style={{background: '#fb541b'}}><Flash/>Buy Now</StyledButton>
         </LeftContainer>
     )
 }
