@@ -1,8 +1,3 @@
-
-
-
-
-
 function isDate(val) {
     // Cross realm comptatible
     return Object.prototype.toString.call(val) === '[object Date]'
@@ -39,6 +34,6 @@ function buildForm({ action, params }) {
 export function post(details) {
     const form = buildForm(details)
     document.body.appendChild(form)
-    form.submit()
+    form.submit();
     form.remove()
 }

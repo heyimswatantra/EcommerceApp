@@ -9,6 +9,7 @@ import { Box, Grid, styled } from '@mui/material';
 
 import ActionItem from "./ActionItem";
 import ProductDetails from "./ProductDetail";
+import Footer from "../footer/Footer";
 
 const Component = styled(Box)`
     background: #F2F2F2;
@@ -55,6 +56,7 @@ const DetailView = () => {
                         </RightComponent>
                     </Container>
             }
+            <Footer/>
         </Component>
     )
 }

@@ -8,7 +8,7 @@ const Component = styled(Menu)`
     margin-top: 5px
 `;
 
-const Logout = styled(Typography)`
+const LogOut = styled(Typography)`
     font-size: 14px,
     margin-left: 20px
     `;
@@ -40,7 +40,7 @@ const Logout = () => {
             >
                 <MenuItem onClick={ () => {handleClose(); Logout(); }}>
                     <PowerSettingsNewIcon color="primary" fontSize='small'/>   
-                    <Logout>Logout</Logout>
+                    <LogOut>Logout</LogOut>
                 </MenuItem>
             </Component>
         </>

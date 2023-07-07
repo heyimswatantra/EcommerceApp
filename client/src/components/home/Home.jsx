@@ -13,6 +13,7 @@ import { Box, styled } from "@mui/material";
 
 import { getProducts } from "../../redux/actions/productActions";
 import { useDispatch, useSelector} from "react-redux";
+import Footer from "../footer/Footer";
 
 const Component = styled(Box)`
 padding: 10px;
@@ -41,6 +42,7 @@ const Home = () => {
             <Slide products={products} title="Top Selection" timer={false}/>
             <Slide products={products} title="Recommended Items" timer={false}/>
         </Component>
+        <Footer/>
         </Fragment>
     )
 }

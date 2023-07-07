@@ -32,9 +32,9 @@ const PlusImage = styled('img')({
     marginLefft: 4
 });
 
-const CustomButtonWrapper = styled(Box)(({theme}) => ({
-    margin: '0 5% 0 auto',
-    [theme.breakpoints.down('md')]: {
+const CustomButtonWrapper = styled('span')(({ theme }) => ({ 
+    margin: '0 5% 0 auto', 
+    [theme.breakpoints.down('sm')]: {
         display: 'none'
     }
 }));
