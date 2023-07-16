@@ -16,6 +16,10 @@ function App() {
   return (
     <DataProvider>
       <BrowserRouter>
+      <Helmet>
+        <title>Flipkart Clone</title>
+        <meta name="flipkart clone app" content="MERN application" />
+      </Helmet>
         <Header/>
           <Box style = {{marginTop: 54}}>
             <Routes>
