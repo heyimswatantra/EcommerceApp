@@ -5,6 +5,8 @@ import Header from './components/header/Header';
 import Home from './components/home/Home';
 import DetailView from './components/details/DetailView';
 import Cart from './components/cart/Cart';
+import {Helmet} from "react-helmet";
+
 
 import DataProvider from './context/DataProvider';
 
