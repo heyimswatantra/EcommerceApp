@@ -68,7 +68,7 @@ const CustomButtons = () => {
             <Typography style={{ marginTop: 3, width: 135 }}>Become a Seller</Typography>
             <Typography style={{ marginTop: 3 }}>More</Typography>
             
-            <Container to="/cart">
+            <Container to='/cart'>
                 <Badge badgeContent={cartItems?.length} color='secondary'>
                 <ShoppingCart/>
                 </Badge>
