@@ -62,9 +62,9 @@ export async function payUsingRazorPay() {
 			description: 'Thank you for shopping with us',
 			image: 'https://flipkart-clone-rti5.onrender.com/logo.svg',
 			handler: function (response) {
-				alert(response.razorpay_payment_id)
-				alert(response.razorpay_order_id)
-				alert(response.razorpay_signature)
+				alert("Payment Id:",response.razorpay_payment_id)
+				alert("Order Id:",response.razorpay_order_id)
+				alert("Receipt No:",response.razorpay_signature)
 			},
 			prefill: {
 				name: 'Swatantra',
