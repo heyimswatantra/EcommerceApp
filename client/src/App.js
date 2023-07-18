@@ -19,7 +19,7 @@ function App() {
     <DataProvider>
       <BrowserRouter>
       <Helmet>
-        <title>Flipkart Clone</title>
+        <title>Online Shopping Site for Mobiles, Electronics, Furniture, Grocery and many more.</title>
         <meta name="flipkart clone app" content="MERN application" />
       </Helmet>
         <Header/>
