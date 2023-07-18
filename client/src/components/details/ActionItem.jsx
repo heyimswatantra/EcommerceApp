@@ -9,8 +9,8 @@ import { useDispatch } from "react-redux";
 
 import { addToCart } from "../../redux/actions/cartActions";
 
-import { payUsingPaytm } from "../../service/api";
-import { post } from "../../utils/paytm";
+import {payUsingRazorPay} from "../../service/api"
+
 
 const LeftContainer = styled(Box)(({theme}) => ({
     minWidth: '40%',
@@ -54,12 +54,8 @@ const ActionItem = ({product}) => {
     }
 
     const buyNow = async () => {
-        let response = await payUsingPaytm({amount : 500, mail: 'swatantra1265'});
-        let information = {
-            action : 'https://securegw-stage.paytm.in/order/process',
-            params: response
-        }
-        post(information);
+        payUsingRazorPay()
+
     }
 
     return (
