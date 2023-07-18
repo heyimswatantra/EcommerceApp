@@ -6,8 +6,7 @@ import CartItem from "./CartItem";
 import TotalView from "./TotalView";
 import EmptyCard from "./EmptyCard";
 
-import { post } from '../../utils/paytm';
-import { payUsingPaytm } from '../../service/api';
+import {payUsingRazorPay} from "../../service/api"
 
 const Container = styled(Grid)(({theme}) => ({
     padding: '30px 135px',
@@ -52,12 +51,7 @@ const Cart = () => {
     const { cartItems } = cartDetails;
 
     const buyNow = async () => {
-        let response = await payUsingPaytm({ amount: 500, email: 'kunaltyagi@gmail.com'});
-        var information = {
-            action: 'https://securegw-stage.paytm.in/order/process',
-            params: response    
-        }
-        post(information);
+        payUsingRazorPay()
     }
 
     return (
